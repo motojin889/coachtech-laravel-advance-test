@@ -1,0 +1,31 @@
+body{
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.main-table{
+  width: 100%;
+}
+
+.main-form-tr{
+  height: 30px;
+}
+
+.main-form-th{
+  width: 30%;
+}
+
+.span{
+  display: inline;
+}
+
+.display-flex{
+  display: flex;
+}
+
+.main-form-text{
+  border: 1px solid rgb(92, 92, 92);
+  border-radius: 4px;
+  line-height: 90%;
+  width: 100%;
+}
