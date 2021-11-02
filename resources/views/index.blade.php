@@ -14,17 +14,17 @@
   <h1 class="top-title">お問い合わせ</h1>
   <table class="main-table">
     <form action="/store" method="POST" class="main-form">
-    @csrf
+      @csrf
       <tr class="main-form-tr">
         <th class="main-form-th">
-          <label for="fullname">お名前※</label>
+          <label for="last-name">お名前※</label>
         </th>
         <td>
-          <input type="text" class="main-form-text main-form-fullname" name="fullname" id="fullname">
+          <input type="text" class="main-form-text main-form-fullname" name="last-name" id="last-name">
           <div class="form-example">例）山田</div>
         </td>
         <td>
-          <input type="text" class="main-form-text main-form-fullname" name="fullname" id="fullname">
+          <input type="text" class="main-form-text main-form-fullname" name="first-name" id="first-name">
           <div class="form-example">例）太郎</div>
         </td>
 
@@ -34,7 +34,7 @@
           <label for="man">性別 ※</label>
         </th>
         <td>
-          <input type="radio" name="gender" id="man" value="1" class="radio-button">
+          <input type="radio" name="gender" id="man" value="1" class="radio-button" checked="checked">
           <label for="man" class="radio-button-text">男性</label>
           <input type="radio" name="gender" id="woman" value="2" class="radio-button">
           <label for="woman" class="radio-button-text">女性</label>
