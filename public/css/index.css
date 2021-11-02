@@ -1,6 +1,13 @@
 body{
   width: 60vw;
-  margin: 0 auto;
+  margin: 50px auto 0;
+}
+
+.top-title{
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .main-table{
@@ -8,11 +15,13 @@ body{
 }
 
 .main-form-tr{
-  height: 30px;
+  height: 40px;
+  line-height: 30px;
 }
 
 .main-form-th{
   width: 30%;
+  vertical-align: middle;
 }
 
 .span{
@@ -26,6 +35,39 @@ body{
 .main-form-text{
   border: 1px solid rgb(92, 92, 92);
   border-radius: 4px;
-  line-height: 90%;
+  line-height: 30px;
   width: 100%;
+}
+
+.main-form-fullname{
+  width: 95%;
+}
+
+.submit{
+  text-align: center;
+}
+
+.submit-button{
+  border: solid black 1px;
+  width: 20%;
+  line-height: 30px;
+  margin: 20px;
+  color: aliceblue;
+  background-color: black;
+  vertical-align: middle;
+}
+
+.form-example{
+  opacity: 0.5;
+  color: black;
+  font-size: small;
+}
+
+.radio-button-text{
+  font-size: 13px;
+}
+
+.radio-button{
+  width: 25px;
+  height: 25px;
 }

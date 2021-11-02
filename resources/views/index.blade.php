@@ -13,29 +13,31 @@
 <body>
   <h1 class="top-title">お問い合わせ</h1>
   <table class="main-table">
-    <form action="" method="POST" class="main-form">
+    <form action="/store" method="POST" class="main-form">
+    @csrf
       <tr class="main-form-tr">
         <th class="main-form-th">
           <label for="fullname">お名前※</label>
         </th>
         <td>
-          <input type="text" class="main-form-text" name="fullname" id="fullname">
-          <div>例）山田</div>
+          <input type="text" class="main-form-text main-form-fullname" name="fullname" id="fullname">
+          <div class="form-example">例）山田</div>
         </td>
         <td>
-          <input type="text" class="main-form-text" name="fullname" id="fullname">
-          <div>例）太郎</div>
+          <input type="text" class="main-form-text main-form-fullname" name="fullname" id="fullname">
+          <div class="form-example">例）太郎</div>
         </td>
+
       </tr>
       <tr class="main-form-tr">
         <th class="main-form-th">
           <label for="man">性別 ※</label>
         </th>
         <td>
-          <input type="radio" name="gender" id="man" value="1">
-          <label for="man">男性</label>
-          <input type="radio" name="gender" id="woman" value="2">
-          <label for="woman">女性</label>
+          <input type="radio" name="gender" id="man" value="1" class="radio-button">
+          <label for="man" class="radio-button-text">男性</label>
+          <input type="radio" name="gender" id="woman" value="2" class="radio-button">
+          <label for="woman" class="radio-button-text">女性</label>
         </td>
       </tr>
       <tr class="main-form-tr">
@@ -48,19 +50,19 @@
       </tr>
       <tr class="main-form-tr">
         <td></td>
-        <td>例）test@example.com</td>
+        <td class="form-example">例）test@example.com</td>
       </tr>
       <tr class="main-form-tr">
         <th class="main-form-th">
           <label for="postcode">郵便番号 ※</label>
         </th>
-        <td class="display-flex" colspan="2">
+        <td colspan="2" class="display-flex">
           〒<input type="text" class="main-form-text" name="postcode" id="postcode">
         </td>
       </tr>
       <tr class="main-form-tr">
         <td></td>
-        <td>例）123-4567</td>
+        <td class="form-example">例）123-4567</td>
       </tr>
       <tr class="main-form-tr">
         <th class="main-form-th">
@@ -72,7 +74,7 @@
       </tr>
       <tr class="main-form-tr">
         <td></td>
-        <td>例）東京都渋谷区千駄ヶ谷1-2-3</td>
+        <td class="form-example">例）東京都渋谷区千駄ヶ谷1-2-3</td>
       </tr>
       <tr class="main-form-tr">
         <th class="main-form-th">
@@ -84,7 +86,7 @@
       </tr>
       <tr class="main-form-tr">
         <td></td>
-        <td>例）千駄ヶ谷マンション101</td>
+        <td class="form-example">例）千駄ヶ谷マンション101</td>
       </tr>
       <tr class="main-form-tr">
         <th class="main-form-th">
@@ -95,8 +97,8 @@
         </td>
       </tr>
       <tr class="main-form-tr">
-        <td>
-          <input type="submit" value="確認">
+        <td colspan="3" class="submit">
+          <input type="submit" value="確認" class="submit-button">
         </td>
       </tr>
     </form>
