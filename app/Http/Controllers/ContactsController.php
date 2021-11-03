@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contacts;
+use App\Http\Requests\StorePostRequest;
 
 class ContactsController extends Controller
 {
@@ -12,7 +13,7 @@ class ContactsController extends Controller
         return view("index");
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $posts = $request->all();
         $posts['fullname'] = $posts['last-name'].$posts['first-name'];
@@ -27,6 +28,6 @@ class ContactsController extends Controller
             'building_name' => $posts['building_name'],
             'option' => $posts['option'],
         ]);
-        return view('index');
+        return redirect()->route('home');
     }
 }

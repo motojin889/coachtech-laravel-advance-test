@@ -11,6 +11,9 @@
 </head>
 
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/store-riquest.js"></script>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
   <h1 class="top-title">お問い合わせ</h1>
   <table class="main-table">
     <form action="/store" method="POST" class="main-form">
@@ -20,11 +23,17 @@
           <label for="last-name">お名前※</label>
         </th>
         <td>
-          <input type="text" class="main-form-text main-form-fullname" name="last-name" id="last-name">
+          <input type="text" class="main-form-text main-form-fullname" name="last-name" id="last-name" maxlength="20" value="{{old('last-name')}}">
+          @if ($errors->has('last-name'))
+          <div>{{ $errors->first('last-name')}}</div>
+          @endif
           <div class="form-example">例）山田</div>
         </td>
         <td>
-          <input type="text" class="main-form-text main-form-fullname" name="first-name" id="first-name">
+          <input type="text" class="main-form-text main-form-fullname" name="first-name" id="first-name" maxlength="20" value="{{old('first-name')}}">
+          @if ($errors->has('first-name'))
+          <div>{{ $errors->first('first-name')}}</div>
+          @endif
           <div class="form-example">例）太郎</div>
         </td>
 
@@ -34,10 +43,13 @@
           <label for="man">性別 ※</label>
         </th>
         <td>
-          <input type="radio" name="gender" id="man" value="1" class="radio-button" checked="checked">
+          <input type="radio" name="gender" id="man" value="1" class="radio-button" {{ old('gender','1') == '1' ? 'checked' : '' }}>
           <label for="man" class="radio-button-text">男性</label>
-          <input type="radio" name="gender" id="woman" value="2" class="radio-button">
+          <input type="radio" name="gender" id="woman" value="2" class="radio-button" {{ old('gender') == '2' ? 'checked' : '' }}>
           <label for="woman" class="radio-button-text">女性</label>
+          @if ($errors->has('gender'))
+          <div>{{ $errors->first('gender')}}</div>
+          @endif
         </td>
       </tr>
       <tr class="main-form-tr">
@@ -45,9 +57,17 @@
           <label for="email">メールアドレス ※</label>
         </th>
         <td colspan="2">
-          <input class="main-form-text" type="email" name="email" id="email">
+          <input class="main-form-text" type="email" name="email" id="email" maxlength="50" value="{{old('email')}}">
+          <div id="right-email"></div>
+          @if ($errors->has('email'))
+          @foreach($errors->get('email') as $message)
+          <div>{{ $message }}</div>
+          @endforeach
+          @endif
         </td>
       </tr>
+
+
       <tr class="main-form-tr">
         <td></td>
         <td class="form-example">例）test@example.com</td>
@@ -57,7 +77,12 @@
           <label for="postcode">郵便番号 ※</label>
         </th>
         <td colspan="2" class="display-flex">
-          〒<input type="text" class="main-form-text" name="postcode" id="postcode">
+          〒<input type="text" class="main-form-text" size="8" maxlength="8" name="postcode" id="postcode" value="{{old('postcode')}}" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');">
+        </td>
+        <td id="postcode-message">
+          @if ($errors->has('postcode'))
+          <div>{{ $errors->first('postcode')}}</div>
+          @endif
         </td>
       </tr>
       <tr class="main-form-tr">
@@ -69,7 +94,12 @@
           <label for="address">住所 ※</label>
         </th>
         <td colspan="2">
-          <input type="text" class="main-form-text" name="address" id="address">
+          <input type="text" class="main-form-text" name="address" id="address" maxlength="40" value="{{old('address')}}">
+          @if ($errors->has('address'))
+          @foreach($errors->get('address') as $message)
+          <div>{{ $message }}</div>
+          @endforeach
+          @endif
         </td>
       </tr>
       <tr class="main-form-tr">
@@ -81,7 +111,7 @@
           <label for="building_name">建物名</label>
         </th>
         <td colspan="2">
-          <input type="text" class="main-form-text" name="building_name" id="building_name">
+          <input type="text" class="main-form-text" name="building_name" id="building_name" maxlength="40" value="{{old('building_name')}}">
         </td>
       </tr>
       <tr class="main-form-tr">
@@ -93,16 +123,23 @@
           <label for="option">ご意見 ※</label>
         </th>
         <td colspan="2">
-          <textarea class="main-form-text" name="option" id="option" cols="30" rows="7"></textarea>
+          <textarea class="main-form-text" name="option" id="option" cols="30" rows="7">{{old('option')}}</textarea>
+          <div id="right-option"></div>
+          @if ($errors->has('option'))
+          @foreach($errors->get('option') as $message)
+          <div>{{ $message }}</div>
+          @endforeach
+          @endif
         </td>
       </tr>
       <tr class="main-form-tr">
         <td colspan="3" class="submit">
-          <input type="submit" value="確認" class="submit-button">
+          <input type="submit" value="確認" class="submit-button" id="submit">
         </td>
       </tr>
     </form>
   </table>
+
 </body>
 
 </html>
