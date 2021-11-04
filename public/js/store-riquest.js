@@ -9,24 +9,36 @@ window.addEventListener('DOMContentLoaded', () => {
   inputPostCode.addEventListener('input', (e) => {
     if (!inputPostCode.value.match(rightPostCode)) {
       document.getElementById('postcode-message').innerHTML = "<div>郵便番号が正しくありません。</div>";
+      document.getElementById('postcode-message').classList.add("form-error");
+      document.getElementById('postcode').classList.add("form-error2");
     } else {
       document.getElementById('postcode-message').innerHTML = "";
+      document.getElementById('postcode-message').classList.remove("form-error");
+      document.getElementById('postcode').classList.remove("form-error2");
     }
   }, false);
   
   inputEmail.addEventListener('input', (e) => {
     if (!inputEmail.value.match(rightEmail)) {
-      document.getElementById('right-email').innerHTML = "<div>メールアドレスが正しくありません。</div>";
+      document.getElementById('email-message').innerHTML = "<div>メールアドレスが正しくありません。</div>";
+      document.getElementById('email-message').classList.add("form-error");
+      document.getElementById('email').classList.add("form-error2");
     } else {
-      document.getElementById('right-email').innerHTML = "";
+      document.getElementById('email-message').innerHTML = "";
+      document.getElementById('email-message').classList.remove("form-error");
+      document.getElementById('email').classList.remove("form-error2");
     }
   }, false);
 
   inputOption.addEventListener('input', (e) => {
     if (inputOption.value.length >= 120) {
-      document.getElementById('right-option').innerHTML = "<div>120文字以内で入力してください。</div>";
+      document.getElementById('option-message').innerHTML = "<div>120文字以内で入力してください。</div>";
+      document.getElementById('option-message').classList.add("form-error");
+      document.getElementById('option').classList.add("form-error2");
     } else {
-      document.getElementById('right-option').innerHTML = "";
+      document.getElementById('option-message').innerHTML = "";
+      document.getElementById('option-message').classList.remove("form-error");
+      document.getElementById('option').classList.remove("form-error2");
     }
   }, false);
 }, false);

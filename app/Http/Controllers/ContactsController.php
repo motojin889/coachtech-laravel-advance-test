@@ -13,9 +13,29 @@ class ContactsController extends Controller
         return view("index");
     }
 
-    public function store(StorePostRequest $request)
+    public function post(StorePostRequest $request)
     {
-        $posts = $request->all();
+        $posts =$request->all();
+        $request->session()->put("form_input", $posts);
+        return redirect()->route('confirm');
+    }
+
+    public function confirm(Request $request)
+    {
+        $posts = $request->session()->get("form_input");
+        if (empty($posts)) {
+            return redirect()->route('home');
+        }
+        return view("confirm",compact('posts'));
+        
+    }
+
+    public function store(Request $request)
+    {
+        $posts = $request->session()->get("form_input");
+        if (empty($posts)) {
+            return redirect()->route('home');
+        }
         $posts['fullname'] = $posts['last-name'].$posts['first-name'];
         unset($posts['first-name']);
         unset($posts['last-name']);
@@ -28,6 +48,14 @@ class ContactsController extends Controller
             'building_name' => $posts['building_name'],
             'option' => $posts['option'],
         ]);
-        return redirect()->route('home');
+
+        $request->session()->forget("form_input");
+
+        return redirect()->route('complete');
+    }
+
+    public function complete()
+    {
+        return view("complete");
     }
 }

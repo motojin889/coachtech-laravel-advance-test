@@ -39,6 +39,15 @@ body{
   width: 100%;
 }
 
+.form-error{
+  color:red;
+  font-weight: 600;
+}
+
+.form-error2{
+  border: red solid 1.75px;
+}
+
 .main-form-fullname{
   width: 95%;
 }
