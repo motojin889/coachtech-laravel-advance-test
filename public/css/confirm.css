@@ -1,0 +1,55 @@
+.top-title{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.confirm-form{
+
+}
+
+.confirm-table{
+  width: 50%;
+  margin: 0 auto;
+  border-spacing: 10px 30px;
+}
+
+
+.confirm-table tr th{
+  width: 25%;
+  text-align: center;
+}
+
+.confirm-table tr td{
+  width: 75%;
+}
+
+.confirm-table-submit{
+  text-align: center;
+}
+
+.confirm-table-button1{
+  background-color: black;
+  color: aliceblue;
+  font-weight: bold;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 10px 50px;
+}
+
+.confirm-table-button2{
+  margin-top: 10px;
+  font-size: 13px;
+  border-bottom: black solid 1px;
+  color: black;
+  font-weight: bold;
+}
+
+.confirm-table-button1:hover{
+  opacity: 0.7;
+}
+
+.confirm-table-button2:hover {
+  opacity: 0.7;
+
+}

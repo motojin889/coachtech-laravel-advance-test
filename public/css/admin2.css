@@ -1,0 +1,69 @@
+.h1{
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.admin-table{
+  border-spacing: 10px 30px;
+  margin: 30px auto 0;
+}
+.admin-table tr td{
+    vertical-align: middle;
+}
+
+.admin-form{
+  border: black solid 2px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.admin-lavel{
+  font-weight: bold;
+  margin: 10px 20px;
+}
+
+.admin-input{
+  border: rgb(122, 122, 122) solid 1px;
+  border-radius: 5px;
+}
+
+.admin-radio-button{
+  width: 25px;
+  height: 25px;
+}
+
+.admin-lavel-radio{
+  font-weight: bold;
+  margin: 10px 20px 10px 5px;
+}
+
+.admin-submit{
+  background-color: black;
+  color: aliceblue;
+  font-weight: bold;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 4px 40px;
+}
+
+.admin-reset{
+  margin: 7px auto 15px;
+  display: block;
+  font-size: 13px;
+  border-bottom: black solid 1px;
+  color: black;
+  font-weight: bold;
+}
+
+.admin-submit:hover{
+  opacity: 0.7;
+}
+
+.admin-reset:hover {
+  opacity: 0.7;
+
+}

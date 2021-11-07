@@ -58,4 +58,49 @@ class ContactsController extends Controller
     {
         return view("complete");
     }
+
+    public function show(){
+        return view('admin', [
+            'items' => Contacts::paginate(10)
+        ]);
+    }
+
+    public function serch(Request $request){
+        $keyword_name = $request->input('keyword_name');
+        $keyword_gender = $request->input('keyword_gender');
+        $keyword_ormore_date = $request->input('keyword_ormore_date');
+        $keyword_orless_date = $request->input('keyword_orless_date');
+        $keyword_email = $request->input('keyword_email');
+        $query = Contacts::query();
+        $items = [];
+        
+        
+        if(!empty($keyword_name)){
+            $items = $query->where('fullname','LIKE',"%{$keyword_name}%")->get();
+        }
+        if($keyword_gender == "all_gender"){
+            $items = Contacts::all();
+        }
+        if($keyword_gender == "man"){
+            $items = $query->where('gender',1)->get();
+        }elseif($keyword_gender == "woman"){
+            $items = $query->where('gender',2)->get();
+        }
+        if(!empty($keyword_ormore_date) && !empty($keyword_orless_date)){
+            $items = $query->whereBetween('created_at',[$keyword_ormore_date,$keyword_orless_date])->get();
+        }
+        if(!empty($keyword_email)){
+            $items = $query->where('email','LIKE',"%{$keyword_email}%")->get();
+        }
+        $items = $query->paginate(10);
+
+        return view('admin', [
+            'items' => $items
+        ]);
+    }
+
+    public function delete(Request $request){
+        Contacts::find($request->id)->delete();
+        return redirect('/admin');
+    }
 }

@@ -7,12 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>確認</title>
   <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/confirm.css">
 </head>
 
 <body>
-  <form action="/confirm/store" method="POST">
+  <h1 class="top-title">内容確認</h1>
+  <form action="/confirm/store" method="POST" class="conrirm-form">
     @csrf
-    <table>
+    <table class="confirm-table">
       <tr>
         <th>お名前</th>
         <td>{{ $posts['last-name'].$posts['first-name']}}</td>
@@ -48,10 +50,10 @@
         <td>{{$posts['option']}}</td>
       </tr>
       <tr>
-        <td>
-          <input type="submit" value="送信">
+        <td class="confirm-table-submit" colspan="2">
+          <input type="submit" value="送信" class="confirm-table-button1">
           <div>
-            <input type="button" value="修正する" onclick="history.back()">
+            <input type="button" value="修正する" onclick="history.back()" class="confirm-table-button2">
           </div>
         </td>
       </tr>

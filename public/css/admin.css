@@ -1,0 +1,49 @@
+.admin-table{
+  width: 90%;
+}
+
+.admin-table-th{
+  border-bottom: solid 1px black;
+}
+
+.admin-table tr{
+  line-height: 30px;
+}
+.admin-th{
+  padding-right: 30px;
+}
+
+.admin-th_id{
+  width: 80px;
+  text-align: center;
+}
+
+.admin-item_id{
+  text-align: center;
+}
+
+.admin-delete-submit{
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.delete-submit{
+  background-color: black;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  font-size: small;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+}
+
+
+.delete-submit:hover{
+  opacity: 0.7;
+}
+
+
+.container{
+  margin: 30px auto 50px;
+}

@@ -20,3 +20,7 @@ Route::get('/confirm', [ContactsController::class, 'confirm'])->name("confirm");
 Route::post('/confirm/store', [ContactsController::class, 'store'])->name("store");
 
 Route::get('/thanks', [ContactsController::class, 'complete'])->name("complete");
+
+Route::get('/admin', [ContactsController::class, 'show'])->name("show");
+Route::get('/admin/serch', [ContactsController::class, 'serch'])->name("serch");
+Route::post('/admin/delete', [ContactsController::class, 'delete'])->name("delete");
