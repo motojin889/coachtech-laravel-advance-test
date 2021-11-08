@@ -6,6 +6,4 @@ window.addEventListener('DOMContentLoaded', () => {
     confirm('データを１件削除しますか');
   }, false);
 
-
-
 }, false);

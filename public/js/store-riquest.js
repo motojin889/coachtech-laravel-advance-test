@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById('postcode').classList.remove("form-error2");
     }
   }, false);
-  
+
   inputEmail.addEventListener('input', (e) => {
     if (!inputEmail.value.match(rightEmail)) {
       document.getElementById('email-message').innerHTML = "<div>メールアドレスが正しくありません。</div>";

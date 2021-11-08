@@ -15,7 +15,7 @@ class ContactsController extends Controller
 
     public function post(StorePostRequest $request)
     {
-        $posts =$request->all();
+        $posts = $request->all();
         $request->session()->put("form_input", $posts);
         return redirect()->route('confirm');
     }
@@ -27,7 +27,6 @@ class ContactsController extends Controller
             return redirect()->route('home');
         }
         return view("confirm",compact('posts'));
-        
     }
 
     public function store(Request $request)
@@ -73,8 +72,7 @@ class ContactsController extends Controller
         $keyword_email = $request->input('keyword_email');
         $query = Contacts::query();
         $items = [];
-        
-        
+
         if(!empty($keyword_name)){
             $items = $query->where('fullname','LIKE',"%{$keyword_name}%")->get();
         }
