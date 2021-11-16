@@ -23,14 +23,14 @@
         <td>
           <input type="text" class="main-form-text main-form-fullname" name="last-name" id="last-name" maxlength="20" value="{{old('last-name')}}">
           @if ($errors->has('last-name'))
-          <div class="form-error">{{ $errors->first('last-name')}}</div>
+          <p class="form-error">{{ $errors->first('last-name')}}</p>
           @endif
           <div class="form-example">例）山田</div>
         </td>
         <td>
           <input type="text" class="main-form-text main-form-fullname" name="first-name" id="first-name" maxlength="20" value="{{old('first-name')}}">
           @if ($errors->has('first-name'))
-          <div class="form-error">{{ $errors->first('first-name')}}</div>
+          <p class="form-error">{{ $errors->first('first-name')}}</p>
           @endif
           <div class="form-example">例）太郎</div>
         </td>
@@ -46,7 +46,7 @@
           <input type="radio" name="gender" id="woman" value="2" class="radio-button" {{ old('gender') == '2' ? 'checked' : '' }}>
           <label for="woman" class="radio-button-text">女性</label>
           @if ($errors->has('gender'))
-          <div class="form-error">{{ $errors->first('gender')}}</div>
+          <p class="form-error">{{ $errors->first('gender')}}</p>
           @endif
         </td>
       </tr>
@@ -59,7 +59,7 @@
           <div id="email-message"></div>
           @if ($errors->has('email'))
           @foreach($errors->get('email') as $message)
-          <div class="form-error">{{ $message }}</div>
+          <p class="form-error">{{ $message }}</p>
           @endforeach
           @endif
         </td>
@@ -79,7 +79,7 @@
         </td>
         <td id="postcode-message">
           @if ($errors->has('postcode'))
-          <div class="form-error">{{ $errors->first('postcode')}}</div>
+          <p class="form-error">{{ $errors->first('postcode')}}</p>
           @endif
         </td>
       </tr>
@@ -95,7 +95,7 @@
           <input type="text" class="main-form-text" name="address" id="address" maxlength="40" value="{{old('address')}}">
           @if ($errors->has('address'))
           @foreach($errors->get('address') as $message)
-          <div class="form-error">{{ $message }}</div>
+          <p class="form-error">{{ $message }}</p>
           @endforeach
           @endif
         </td>
@@ -125,7 +125,7 @@
           <div id="option-message"></div>
           @if ($errors->has('option'))
           @foreach($errors->get('option') as $message)
-          <div class="form-error">{{ $message }}</div>
+          <p class="form-error">{{ $message }}</p>
           @endforeach
           @endif
         </td>
@@ -138,7 +138,7 @@
     </form>
   </table>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="js/store-riquest.js"></script>
+  <script src="js/store-request.js"></script>
   <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </body>
 

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contacts;
+use App\Models\Contact;
 use App\Http\Requests\StorePostRequest;
 
-class ContactsController extends Controller
+class ContactController extends Controller
 {
     public function home()
     {
@@ -38,7 +38,7 @@ class ContactsController extends Controller
         $posts['fullname'] = $posts['last-name'].$posts['first-name'];
         unset($posts['first-name']);
         unset($posts['last-name']);
-        Contacts::insert([
+        Contact::insert([
             'fullname' => $posts['fullname'],
             'gender' => $posts['gender'],
             'email' => $posts['email'],
@@ -60,7 +60,7 @@ class ContactsController extends Controller
 
     public function show(){
         return view('admin', [
-            'items' => Contacts::paginate(10)
+            'items' => Contact::paginate(10)
         ]);
     }
 
@@ -70,14 +70,14 @@ class ContactsController extends Controller
         $keyword_ormore_date = $request->input('keyword_ormore_date');
         $keyword_orless_date = $request->input('keyword_orless_date');
         $keyword_email = $request->input('keyword_email');
-        $query = Contacts::query();
+        $query = Contact::query();
         $items = [];
 
         if(!empty($keyword_name)){
             $items = $query->where('fullname','LIKE',"%{$keyword_name}%")->get();
         }
         if($keyword_gender == "all_gender"){
-            $items = Contacts::all();
+            $items = Contact::all();
         }
         if($keyword_gender == "man"){
             $items = $query->where('gender',1)->get();
@@ -98,7 +98,7 @@ class ContactsController extends Controller
     }
 
     public function delete(Request $request){
-        Contacts::find($request->id)->delete();
+        Contact::find($request->id)->delete();
         return redirect('/admin');
     }
 }
